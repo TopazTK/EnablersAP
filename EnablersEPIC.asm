@@ -1,5 +1,18 @@
+0x15E252:
+    JMP 0x15E293 ; Jump to the Deathlink Function.
+
+0x15E293:
+    CALL 0x404460 ; Call the function that returns Sora's Pointer. Stored at RAX.
+    MOV RCX, RAX ; Move RAX to RCX.
+    JMP 0x15E2C2 ; Branch-off to the next empty space.
+
+0x15E2C2:
+    MOV R8, RDX ; Move RDX [which should be 0x00] to R8.
+    MOV R9, RDX ; Move RDX [which should be 0x00] to R9.
+    JMP 0x3D2190 ; Jump to the Add HP function. [This should always add 0x00 HP, but will cause an update to trigger death.]
+
 0x180D64:
-    JMP 0x102891 ; Jump to the injected function start.
+    JMP 0x102891 ; Jump to the Information Function.
 
 0x102891:
     MOV EBP, [0x2A10EF8] ; Move the Cutscene Pointer to the EBP register.
