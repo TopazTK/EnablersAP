@@ -21,31 +21,7 @@
     RET ; Return otherwise.
 
 0x1028A7:
-    MOV BPL, [0x09001C4] ; Move the Menu Type Variable to the BPL register.
-    JMP 0x1028B3 ; Branch-off the next empty space.
-
-0x1028B3:
-    INC BPL ; Increase the BPL register.
-    JE 0x1029B7 ; If equal to 0x00 [BPL was 0xFF], continue.
-    RET ; Return otherwise.
-
-0x1029B7:
-    MOV BPL, [0x09BA350] ; Move the Is Loaded Variable to the BPL register.
-    JMP 0x1029C6 ; Branch-off the next empty space.
-
-0x1029C6:
-    DEC BPL ; Decrease the BPL register.
-    JE 0x1029E6 ; If equal to 0x00 [BPL was 0x01], continue.
-    RET ; Return otherwise.
-
-0x1029E6:
-    MOV BPL, [0x0717208] ; Move the Is Running Variable to the BPL register.
-    JMP 0x1029F6 ; Branch-off the next empty space.
-
-0x1029F6:
-    DEC BPL ; Decrease the BPL register.
-    JE 0x102592 ; If equal to 0x00 [BPL was 0x01], continue.
-    RET ; Retrun otherwise.
+    JMP 0x102592 ; Branch-off to the main function.
 
 0x102592:
     MOV BPL, [0x0800000] ; Move the Enable Flag Variable to the BPL register.
