@@ -48,5 +48,5 @@
     JMP 0x1440E3 ; Branch-off the next empty space.
 
 0x1440E3:
-    LEA RCX, [0x800004] ; Load the Raw Text Pointer to the RCX register.
+    LEA RCX, [0x800104] ; Load the Raw Text Pointer to the RCX register.
     JMP 0x1595D0 ; Jump to the Prize Bar function.
