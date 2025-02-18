@@ -1,0 +1,10 @@
+
+title: Function Enablers
+originalAuthor: TopazTK
+description: Enables calling the Information and Prize Bars, as well as the ability to kill Sora/Roxas.
+
+assets: 
+- name: scripts/EnablersAP.lua
+  method: copy
+  source:
+    - name: scripts/EnablersAP.lua
