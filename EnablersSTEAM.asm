@@ -12,7 +12,11 @@
     RET ; Return otherwise.
 
 0x15EC14:
-    MOV ECX, [0x2A25300] ; Move the Player Object ID to ECX.
+    MOV RCX, RDX ; Move RDX to RCX [RDX is 0x00. This effectively clears RCX.]
+    JMP 0x15EC65 ; Branch-off to the next empty space.
+
+0x15EC65:
+    MOV CX, [0x2A25300] ; Move the Player Object ID to CX.
     JMP 0x15EC28 ; Branch-off to the next empty space.
 
 0x15EC28:
