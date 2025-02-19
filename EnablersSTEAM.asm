@@ -1,5 +1,15 @@
 0x15EBA2:
-    JMP 0x3D2E75 ; Jump to the Deathlink Function.
+    MOV RCX, 0xABD248 ; Load the PLAYER_GAUGE pointer to RCX.
+    JMP 0x15EBE3 ; Branch-off to the next empty space.
+
+0x15EBE3:
+    MOV RCX, [RCX + 0x88] ; Load the SORA_GAUGE pointer to RCX, from RCX + 0x88.
+    CMP RCX, 0x00 ; Compare RCX to 0x00.
+    JMP 0x15EC12; Branch-off to the next empty space.
+
+0x15EC12:
+    JNE 0x3D2E75 ; If RCX is NOT 0x00, jump to the Deathlink Function.
+    RET ; Return otherwise.
 
 0x3D2E75:
     CALL 0x405180 ; Call the function that returns Sora's Pointer. Stored at RAX.
@@ -48,5 +58,5 @@
     JMP 0x1440E3 ; Branch-off the next empty space.
 
 0x1440E3:
-    LEA RCX, [0x800104] ; Load the Raw Text Pointer to the RCX register.
+    LEA RCX, [0x800004] ; Load the Raw Text Pointer to the RCX register.
     JMP 0x1595D0 ; Jump to the Prize Bar function.
