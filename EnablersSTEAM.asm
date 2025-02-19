@@ -8,7 +8,19 @@
     JMP 0x15EC12; Branch-off to the next empty space.
 
 0x15EC12:
-    JNE 0x3D2E75 ; If RCX is NOT 0x00, jump to the Deathlink Function.
+    JNE 0x15EC14 ; If RCX is NOT 0x00, continue.
+    RET ; Return otherwise.
+
+0x15EC14:
+    MOV ECX, [0x2A25300] ; Move the Player Object ID to ECX.
+    JMP 0x15EC28 ; Branch-off to the next empty space.
+
+0x15EC28:
+    CMP ECX, 0x03BE ; Compare ECX with the Object ID 0x03BE [P_LM100]
+    JMP 0x15EC38 ; Branch-off to the next empty space.
+
+0x15EC38:
+    JNE 0x3D2E75 ; If not equal, jump to the Deathlink function.
     RET ; Return otherwise.
 
 0x3D2E75:
